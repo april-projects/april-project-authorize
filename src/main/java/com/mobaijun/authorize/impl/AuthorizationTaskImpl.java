@@ -1,7 +1,6 @@
 package com.mobaijun.authorize.impl;
 
 import com.mobaijun.authorize.AuthorizationTask;
-import com.mobaijun.constant.Constant;
 import com.mobaijun.util.EncryptionUtils;
 
 import java.time.LocalDate;
@@ -26,7 +25,7 @@ public class AuthorizationTaskImpl implements AuthorizationTask {
      *
      * @return 如果在有效期内则返回 true，否则返回 false
      */
-    public static boolean isWithinValidityPeriod() {
+    public static boolean isWithinValidityPeriod(Integer date) {
         // 解析注册日期字符串为 LocalDate 对象
         LocalDate parsedDate = LocalDate.parse(EncryptionUtils.decrypt());
 
@@ -34,16 +33,16 @@ public class AuthorizationTaskImpl implements AuthorizationTask {
         LocalDate currentDate = LocalDate.now();
 
         // 获取到期日期（注册日期 + 7天）
-        LocalDate expiryDate = parsedDate.plusDays(Constant.EXPIRY_DATE);
+        LocalDate expiryDate = parsedDate.plusDays(date);
 
         // 判断当前日期是否在有效期内
         return !currentDate.isBefore(parsedDate) && !currentDate.isAfter(expiryDate);
     }
 
     @Override
-    public void execute() {
+    public void execute(Integer date) {
         // 判断当前日期是否在有效期内
-        if (!isWithinValidityPeriod()) {
+        if (!isWithinValidityPeriod(date)) {
             // 记录授权过期信息到日志
             logger.warning("授权已过期，请联系作者获取正版授权！");
             logger.warning("作者邮箱：mobaijun8@163.com");

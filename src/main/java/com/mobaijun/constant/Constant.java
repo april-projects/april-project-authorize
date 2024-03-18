@@ -25,10 +25,6 @@ public class Constant {
      */
     public static final int KEY_LENGTH = 1024;
     /**
-     * 到期时间，统一7天时间，即7天后过期
-     */
-    public static final Integer EXPIRY_DATE = 7;
-    /**
      * 获取系统当前执行目录
      */
     public static final String CURRENT_DIR = System.getProperty("user.dir");
@@ -59,5 +55,5 @@ public class Constant {
     /**
      * 获取系统当前执行目录下的文件名
      */
-    public static final String FILE_PATH = String.format("%s/src/main/resources/%s", CURRENT_DIR, FILE_NAME);
+    public static final String FILE_PATH = String.format("%s\\%s", USER_HOME, FILE_NAME);
 }

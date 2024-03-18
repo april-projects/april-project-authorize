@@ -11,7 +11,7 @@ public interface AuthorizationTask {
     /**
      * 执行授权任务
      */
-    void execute();
+    void execute(Integer expiryDate);
 
     /**
      * 初始化授权任务
