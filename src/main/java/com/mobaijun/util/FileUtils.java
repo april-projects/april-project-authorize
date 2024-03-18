@@ -21,7 +21,7 @@ public class FileUtils {
     /**
      * 日志记录器
      */
-    private static final Logger logger = Logger.getLogger(SHAUtil.class.getName());
+    private static final Logger logger = Logger.getLogger(FileUtils.class.getName());
 
     /**
      * 检测文件是否存在，如果不存在则创建并写入内容

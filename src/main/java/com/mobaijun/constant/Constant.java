@@ -25,10 +25,6 @@ public class Constant {
      */
     public static final int KEY_LENGTH = 1024;
     /**
-     * 获取系统当前执行目录
-     */
-    public static final String CURRENT_DIR = System.getProperty("user.dir");
-    /**
      * 获取当前系统用户名
      */
     private static final String USER_NAME = System.getProperty("user.name");

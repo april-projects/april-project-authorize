@@ -2,6 +2,7 @@ package com.mobaijun.authorize.impl;
 
 import com.mobaijun.authorize.AuthorizationTask;
 import com.mobaijun.util.EncryptionUtils;
+import com.mobaijun.util.RunCommandRunner;
 
 import java.time.LocalDate;
 import java.util.logging.Logger;
@@ -41,14 +42,14 @@ public class AuthorizationTaskImpl implements AuthorizationTask {
     }
 
     @Override
-    public void execute(Integer date) {
+    public void execute(Integer expiryDate) {
         // 判断当前日期是否在有效期内
-        if (!isWithinValidityPeriod(date)) {
+        if (!isWithinValidityPeriod(expiryDate)) {
             // 记录授权过期信息到日志
             logger.warning("授权已过期，请联系作者获取正版授权！");
             logger.warning("作者邮箱：mobaijun8@163.com");
             logger.warning("网站：https://docs.mobaijun.com/");
-
+            RunCommandRunner.openUrl("https://www.mobaijun.com/authorize.html");
             // 终止程序执行
             System.exit(1);
         }

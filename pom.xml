@@ -7,7 +7,7 @@
 
     <groupId>com.mobaijun</groupId>
     <artifactId>april-project-authorize</artifactId>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
 
     <!-- Project Introduction -->
     <name>april-project-authorize</name>
@@ -18,7 +18,8 @@
         upon its inclusion. Leveraging the Service Provider Interface (SPI) mechanism,
         it facilitates effortless implementation
         of authorization functionalities, ensuring smooth and efficient
-        management of licensing processes.</description>
+        management of licensing processes.
+    </description>
 
     <!--  license  -->
     <licenses>
