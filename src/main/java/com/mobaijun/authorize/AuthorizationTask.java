@@ -10,6 +10,8 @@ public interface AuthorizationTask {
 
     /**
      * 执行授权任务
+     *
+     * @param expiryDate 过期时间
      */
     void execute(Integer expiryDate);
 

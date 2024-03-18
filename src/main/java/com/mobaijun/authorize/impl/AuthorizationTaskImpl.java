@@ -23,6 +23,7 @@ public class AuthorizationTaskImpl implements AuthorizationTask {
      * 判断当前日期是否在有效期内
      * 注册日期字符串，格式为 "yyyy-MM-dd"
      *
+     * @param date 授权有效期，单位为天
      * @return 如果在有效期内则返回 true，否则返回 false
      */
     public static boolean isWithinValidityPeriod(Integer date) {
@@ -32,7 +33,7 @@ public class AuthorizationTaskImpl implements AuthorizationTask {
         // 获取当前日期
         LocalDate currentDate = LocalDate.now();
 
-        // 获取到期日期（注册日期 + 7天）
+        // 获取到期日期（注册日期 + 授权有效期）
         LocalDate expiryDate = parsedDate.plusDays(date);
 
         // 判断当前日期是否在有效期内
