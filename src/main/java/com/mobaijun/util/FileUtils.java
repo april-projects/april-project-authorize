@@ -37,13 +37,13 @@ public class FileUtils {
                 if (created) {
                     writeToFile(content, file.getPath());
                 } else {
-                    logger.log(Level.WARNING, "创建文件失败：" + file.getPath());
+                    logger.log(Level.WARNING, "File creation failure：" + file.getPath());
                 }
             } catch (IOException e) {
-                logger.log(Level.SEVERE, "创建文件时出现异常", e);
+                logger.log(Level.SEVERE, "An exception occurred while creating the file", e.getMessage());
             }
         } else {
-            logger.log(Level.INFO, "文件已存在：" + file.getPath());
+            logger.log(Level.INFO, "File already exists：" + file.getPath());
         }
     }
 
@@ -58,9 +58,9 @@ public class FileUtils {
             FileWriter writer = new FileWriter(Constant.FILE_PATH);
             writer.write(content);
             writer.close();
-            logger.log(Level.INFO, "文件写入成功：" + filePath);
+            logger.log(Level.INFO, "File write success：" + filePath);
         } catch (IOException e) {
-            logger.log(Level.SEVERE, "写入文件时出现异常", e);
+            logger.log(Level.SEVERE, "An exception occurred while writing the file", e);
         }
     }
 
